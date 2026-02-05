@@ -1,3 +1,24 @@
 Questions:
 
 Write as many questions as you can based on the project specs.
+
+Are we going to use recursive in this project? C
+When is due? C
+Are we going to be using hashmaps? C
+Do we need to do this at home? C
+Will we be importing different libraries? C
+How many points is this project? C
+Do we need to use stacks and queues for this project? C
+Do we have time to work on this porject in class? C
+Is there extra credit for this assginemnt, if there is how many more points it? O
+Is this a group project? C
+How many mazes do we have to deal with? O
+Is recursion required for all test cases? C
+Is this supposed to be challenging project? O
+Will we learn command line arguements? O
+When is the project due? C
+
+What question(s) did you generate that can be better (get to real answers or understanding) by rewording them to be open-ended or closed? 
+
+Several closed questions would work better as open-ended ones. These changes would give me deeper explanations 
+about how and why instead of just one yes/no answers, and allows me to truly understand the project.
