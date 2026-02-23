@@ -22,3 +22,6 @@ What question(s) did you generate that can be better (get to real answers or und
 
 Several closed questions would work better as open-ended ones. These changes would give me deeper explanations 
 about how and why instead of just one yes/no answers, and allows me to truly understand the project.
+
+
+
