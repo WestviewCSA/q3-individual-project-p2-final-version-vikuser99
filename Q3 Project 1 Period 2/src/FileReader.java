@@ -56,7 +56,14 @@ public class FileReader {
 			while(scan.hasNext()) {
 				
 				String character = scan.next();
-				cordBased[Integer.parseInt(scan.next())][Integer.parseInt(scan.next())] = character;
+				int rowL = Integer.parseInt(scan.next());
+				int colL = Integer.parseInt(scan.next());
+				if(rowL <= Integer.parseInt(rows) || colL <= Integer.parseInt(columns)) {
+					System.out.println("Coords don't match");
+					String[][]empty =new String[0][0];
+					return empty;
+				}
+				cordBased[rowL][colL] = character;
 				scan.next();
 			}
 			
