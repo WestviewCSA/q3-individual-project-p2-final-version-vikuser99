@@ -1,0 +1,12 @@
+Queue Approach:
+Start at the W and go to  each adjacent square
+Add the squares to the queue
+Check if the $ is there
+If found, we have the path
+If not found we visit the next square in the queue and repeat the process until $ is found.
+
+Stack Approach:
+Start W and got each adjecnt square add them stack
+pop the top element an check if has dollar sign
+if found thats path
+if not found repeat process and keep popping the top element until the $ is found

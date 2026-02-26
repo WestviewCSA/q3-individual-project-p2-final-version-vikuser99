@@ -34,7 +34,7 @@ public class FileReader {
 		
 	}
 	
-	public static String[][] getCords (String passedFile) {
+	public String[][] getCords (String passedFile) {
 		
 		String rows = "";		
 		String columns = "";
@@ -89,4 +89,21 @@ public class FileReader {
 	}
 
 }
+
+	
+	public void queueApproach(String [][] maze) {
+		Queue<String> queue1 = new ArrayDeque<>();
+		Queue<String> visited = new ArrayDeque<>();
+		int row =0;
+		int col =0;
+		String pos = maze[row][col];
+		queue1.add(pos);
+		while(!queue1.isEmpty()) {
+			visited.add(pos);
+			queue1.add(maze[row+1][col]);
+			queue1.add(maze[row][col+1]);
+			visited.add(maze[row+1][col]);
+			
+		}
+	}
 
