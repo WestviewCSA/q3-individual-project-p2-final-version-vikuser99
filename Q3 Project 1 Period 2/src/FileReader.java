@@ -28,7 +28,7 @@ public class FileReader {
 				 val.add(nextVal);
 			 }
 		 } catch(FileNotFoundException e) {
-			 e.printStackTrace();
+			 e.printStackTrace();  
 		 }
 		 return val;
 		
@@ -100,7 +100,7 @@ public class FileReader {
 			for(int j =0; j<maze[0].length; j++) {
 				if(maze[i][j].equals("W")) {
 					rowIndex = i;
-					colIndex = j;
+					colIndex = j; // setting coords for the starting position
 				}
 			}
 		
