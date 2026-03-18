@@ -126,5 +126,25 @@ public class FileReader {
 			visited[newRow][newCol] = true;
 		    queue.add(new int[]{newRow, newCol});
 		}
+		newRow = row + 1;
+		newCol = col;
+		if(newRow >= 0 && newCol >= 0 && newRow < maze.length && newCol < maze[0].length && !visted[newRow][newCol] && !maze[newRow][newCol].equals("@")) {
+			visited[newRow][newCol] = true;
+		    queue.add(new int[]{newRow, newCol});
+		}
+		newRow = row;
+		newCol = col+1;
+		if(newRow >= 0 && newCol >= 0 && newRow < maze.length && newCol < maze[0].length && !visted[newRow][newCol] && !maze[newRow][newCol].equals("@")) {
+			visited[newRow][newCol] = true;
+		    queue.add(new int[]{newRow, newCol});
+		}
+		
+		newRow = row;
+		newCol = col-1;
+		if(newRow >= 0 && newCol >= 0 && newRow < maze.length && newCol < maze[0].length && !visted[newRow][newCol] && !maze[newRow][newCol].equals("@")) {
+			visited[newRow][newCol] = true;
+		    queue.add(new int[]{newRow, newCol});
+		}
+		
 	}
 
