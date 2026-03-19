@@ -1,8 +1,10 @@
 import java.io.File;
+
 import java.io.FileNotFoundException;
 import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class FileReader {
 
@@ -160,9 +162,10 @@ public class FileReader {
 		
 		
 	
-	public void stackAppoach(String [][ maze]) {
+	public void stackAppoach(String [][] maze) {
 		Stack<int[]> stack = new Stack<>();
 		boolean [][] visited = new boolean[maze.length][maze[0].length];
+		int[][][] parent = new int[maze.length][maze[0].length][2];
 		int startRow =0;
 		int startCol =0;
 		for(int i =0; i< maze.length; i++) {
@@ -175,6 +178,55 @@ public class FileReader {
 		
 			
 		}
+		queue1.add(new int[] {startRow, startCol}); // will this work?
+		visited[startRow][startCol] = true;
+		
+		while(!stack.isEmpty()) {
+			int [] current = stack.pop();
+			int row = current[0];
+			int col = current[1];
+			
+			if (maze[row][col].equals("$")) {
+				  int[] current2 = {row, col};
+		            while(!maze[current2[0]][current2[1]].equals("W")) {
+		                maze[current2[0]][current2[1]] = "+";
+		                current2 = parent[current2[0]][current2[1]];
+		            }
+		            return;
+		        }
+		    
+			int newRow = row - 1;
+			int newCol = col;
+			if(newRow >= 0 && newCol >= 0 && newRow < maze.length && newCol < maze[0].length && !visited[newRow][newCol] && !maze[newRow][newCol].equals("@")) {
+				visited[newRow][newCol] = true;
+				parent[newRow][newCol] = new int[]{row, col};
+			    stack.push(new int[]{newRow, newCol});
+			}
+			newRow = row + 1;
+			newCol = col;
+			if(newRow >= 0 && newCol >= 0 && newRow < maze.length && newCol < maze[0].length && !visited[newRow][newCol] && !maze[newRow][newCol].equals("@")) {
+				visited[newRow][newCol] = true;
+				parent[newRow][newCol] = new int[]{row, col};
+			    stack.push(new int[]{newRow, newCol});
+			}
+			newRow = row;
+			newCol = col+1;
+			if(newRow >= 0 && newCol >= 0 && newRow < maze.length && newCol < maze[0].length && !visited[newRow][newCol] && !maze[newRow][newCol].equals("@")) {
+				visited[newRow][newCol] = true;
+				parent[newRow][newCol] = new int[]{row, col};
+			    stack.push(new int[]{newRow, newCol});
+			}
+			
+			newRow = row;
+			newCol = col-1;
+			if(newRow >= 0 && newCol >= 0 && newRow < maze.length && newCol < maze[0].length && !visited[newRow][newCol] && !maze[newRow][newCol].equals("@")) {
+				visited[newRow][newCol] = true;
+				parent[newRow][newCol] = new int[]{row, col};
+			    stack.push(new int[]{newRow, newCol});
+			}
+
+		}
+		
 		
 	}
 	
