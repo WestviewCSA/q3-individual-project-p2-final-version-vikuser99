@@ -1,7 +1,26 @@
+import java.util.ArrayDeque;
 import java.util.Queue;
 import java.util.Stack;
 
 public class MazeSolver {
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		 FileReader fr = new FileReader();
+		    String[][] maze = fr.getCords("test1.txt");
+		    
+		    MazeSolver solver = new MazeSolver();
+		    solver.stackApproach(maze);
+		    
+		    for(int i = 0; i < maze.length; i++) {
+		        for(int j = 0; j < maze[0].length; j++) {
+		            System.out.print(maze[i][j]);
+		        }
+		        System.out.println();
+		    }
+	}
+
+
 	public void queueApproach(String [][] maze) {
 		Queue<int[]> queue1 = new ArrayDeque<>();
 		boolean [][] visited = new boolean[maze.length][maze[0].length];
@@ -29,7 +48,10 @@ public class MazeSolver {
 			if (maze[row][col].equals("$")) {
 				  int[] current2 = {row, col};
 		            while(!maze[current2[0]][current2[1]].equals("W")) {
-		                maze[current2[0]][current2[1]] = "+";
+		            	if(!maze[current2[0]][current2[1]].equals("$")) {
+		            		maze[current2[0]][current2[1]] = "+";	
+		            	}
+		                
 		                current2 = parent[current2[0]][current2[1]];
 		            }
 		            return;
@@ -71,7 +93,7 @@ public class MazeSolver {
 		
 		
 	
-	public void stackAppoach(String [][] maze) {
+	public void stackApproach(String [][] maze) {
 		Stack<int[]> stack = new Stack<>();
 		boolean [][] visited = new boolean[maze.length][maze[0].length];
 		int[][][] parent = new int[maze.length][maze[0].length][2];
@@ -98,7 +120,10 @@ public class MazeSolver {
 			if (maze[row][col].equals("$")) {
 				  int[] current2 = {row, col};
 		            while(!maze[current2[0]][current2[1]].equals("W")) {
-		                maze[current2[0]][current2[1]] = "+";
+		            	if(!maze[current2[0]][current2[1]].equals("$")) {
+		            		maze[current2[0]][current2[1]] = "+";	
+		            	}
+		                
 		                current2 = parent[current2[0]][current2[1]];
 		            }
 		            return;
