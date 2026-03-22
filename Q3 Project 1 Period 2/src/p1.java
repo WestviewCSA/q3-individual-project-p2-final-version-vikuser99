@@ -3,9 +3,6 @@ public class p1 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println("Running with " + args.length + " arguments");
-		System.out.println("File: " + args[args.length-1]);
-		String fileName = args[args.length-1];
 		
 		boolean useStack = false;
 		boolean useQueue = false;
@@ -18,10 +15,10 @@ public class p1 {
 			if(arg.equals("--Stack")) useStack = true;
 			if(arg.equals("--Queue")) useQueue = true;
 			if(arg.equals("--Opt")) useOpt = true;
-			if(arg.equals("--Time")) useStack = true;
-			if(arg.equals("--Incoordinate")) useStack = true;
-			if(arg.equals("--Outcoordinate")) useStack = true;
-			if(args.equals("--Help")) {
+			if(arg.equals("--Time")) useTime = true;
+			if(arg.equals("--Incoordinate")) useInCoordinate = true;
+			if(arg.equals("--Outcoordinate")) useOutCoordinate = true;
+			if(arg.equals("--Help")) {
 				System.out.println("This program fins a path through a maze.");
 				System.out.println("Use stack");
 				System.out.println("Use queue");
@@ -71,7 +68,7 @@ public class p1 {
 		}
 		
 		for(int i =0; i<maze.length; i++) {
-			for(int j =0; i<maze[0].length; j++) {
+			for(int j =0; j<maze[0].length; j++) {
 				System.out.print(maze[i][j]);
 			}
 			System.out.println();
