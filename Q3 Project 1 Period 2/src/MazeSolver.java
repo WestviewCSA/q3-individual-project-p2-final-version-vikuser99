@@ -9,7 +9,10 @@ public class MazeSolver {
 	}
 
 
-	public void queueApproach(String [][] maze) {
+	public void queueApproach(String [][][] mazes) {
+		for(int level =0; level<mazes.length; level++) {
+			String[][] maze = mazes[level];
+		
 		Queue<int[]> queue1 = new ArrayDeque<>();
 		boolean [][] visited = new boolean[maze.length][maze[0].length];
 		int[][][] parent = new int[maze.length][maze[0].length][2];
@@ -37,12 +40,22 @@ public class MazeSolver {
 				  int[] current2 = {row, col};
 		            while(!maze[current2[0]][current2[1]].equals("W")) {
 		            	if(!maze[current2[0]][current2[1]].equals("$")) {
-		            		maze[current2[0]][current2[1]] = "+";	
+		            		maze[current2[0]][current2[1]] = "+";
+		            		current2 = parent[current2[0]][current2[1]];
 		            	}
+		            	return;
 		                
-		                current2 = parent[current2[0]][current2[1]];
 		            }
-		            return;
+		            if(maze[row][col].equals("|")) {
+		            	int[] current3 = {row, col};
+		            	while(!maze[current3[0]][current3[1]].equals("W")) {
+		            		if(!maze[current3[0]][current3[1]].equals("|")) {
+		            			maze[current3[0]][current3[1]] = "+";
+			            		current3 = parent[current3[0]][current2[1]];
+		            		}
+		            		break;
+		            	}
+		            }
 		        }
 		    
 			int newRow = row - 1;
@@ -76,12 +89,17 @@ public class MazeSolver {
 			}
 
 		}
+		System.out.println("Wolverine Store Closed");
+		}
 	}
 		
 		
 		
 	
-	public void stackApproach(String [][] maze) {
+	public void stackApproach(String [][][] mazes) {
+		for(int level =0; level<mazes.length; level++) {
+			String[][] maze = mazes[level];
+			
 		Stack<int[]> stack = new Stack<>();
 		boolean [][] visited = new boolean[maze.length][maze[0].length];
 		int[][][] parent = new int[maze.length][maze[0].length][2];
@@ -109,13 +127,23 @@ public class MazeSolver {
 				  int[] current2 = {row, col};
 		            while(!maze[current2[0]][current2[1]].equals("W")) {
 		            	if(!maze[current2[0]][current2[1]].equals("$")) {
-		            		maze[current2[0]][current2[1]] = "+";	
+		            		maze[current2[0]][current2[1]] = "+";
+		            		 current2 = parent[current2[0]][current2[1]];
 		            	}
 		                
-		                current2 = parent[current2[0]][current2[1]];
+		            	 return;
 		            }
-		            return;
+		            if(maze[row][col].equals("|")) {
+		            	int[] current3 = {row, col};
+		            	while(!maze[current3[0]][current3[1]].equals("W")) {
+		            		if(!maze[current3[0]][current3[1]].equals("|")) {
+		            			maze[current3[0]][current3[1]] = "+";
+			            		current3 = parent[current3[0]][current2[1]];
+		            		}
+		            break;
 		        }
+		      }
+			}
 		    
 			int newRow = row - 1;
 			int newCol = col;
@@ -148,7 +176,7 @@ public class MazeSolver {
 			}
 
 		}
-		
-		
+		System.out.println("Wolverine Store Closed");
+		}	
 	}
 }
