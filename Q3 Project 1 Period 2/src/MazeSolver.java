@@ -6,18 +6,6 @@ public class MazeSolver {
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		 FileReader fr = new FileReader();
-		    String[][] maze = fr.getCords("test2.txt");
-		    
-		    MazeSolver solver = new MazeSolver();
-		    solver.queueApproach(maze);
-		    
-		    for(int i = 0; i < maze.length; i++) {
-		        for(int j = 0; j < maze[0].length; j++) {
-		            System.out.print(maze[i][j]);
-		        }
-		        System.out.println();
-		    }
 	}
 
 
