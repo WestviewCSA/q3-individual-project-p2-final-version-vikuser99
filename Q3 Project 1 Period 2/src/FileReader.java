@@ -10,22 +10,25 @@ public class FileReader {
 
 	}
 	
-	public String[][] getText(String passedFile) {
+	public String[][][] getText(String passedFile) {
 		File file = new File(passedFile);
 		
 		 try {
 			 Scanner scan= new Scanner(file);
-			 scan = new Scanner(file);
+			 
 			  int rows= Integer.parseInt(scan.next());
 			  int cols = Integer.parseInt(scan.next());
 			  int levels = Integer.parseInt(scan.next());
 			  
-			  String[][] maze = new String[rows][cols];
+			  String[][][] maze = new String[levels][rows][cols];
+			  
+			  for(int level =0; level < levels; level++) {
 			  for(int i =0; i<rows; i++) {
 				  String line = scan.next();
 				  for(int j =0; j<cols; j++) {
-					  maze[i][j] = "" + line.charAt(j);
+					  maze[level][i][j] = "" + line.charAt(j);
 				  }
+			  }
 			  }
 			  return maze;
 			 
@@ -37,49 +40,47 @@ public class FileReader {
 		
 	}
 	
-	public String[][] getCords (String passedFile) {
+	public String[][][] getCords (String passedFile) {
 		
-		String rows = "";		
-		String columns = "";
-		String maps = "";
-		
-
+		int rows = 0;		
+		int columns = 0;
+		int levels = 0;
 		
 		File fileObj = new File(passedFile);
 		try {
-			
-			
 			Scanner scan = new Scanner(fileObj);
-			rows = scan.next();
-			columns = scan.next();
-			maps = scan.next();
+			rows = Integer.parseInt(scan.next());
+			columns = Integer.parseInt(scan.next());
+			levels = Integer.parseInt(scan.next());
 			
-			String[][] cordBased = new String[Integer.parseInt(rows)][Integer.parseInt(columns)];
-			
+			String[][][] maze = new String[levels][rows][columns];
+			for(int l =0; l < levels; l++) {
+			for(int i = 0; i < maze.length; i++) {
+				for(int j = 0; j < maze[0].length; j++) {
+					if(maze[i][j] == null) {
+						maze[l][i][j] = ".";
+					}
+				}
+			}
+
+			}
 			while(scan.hasNext()) {
 				
 				String character = scan.next();
 				int rowL = Integer.parseInt(scan.next());
 				int colL = Integer.parseInt(scan.next());
-				if(rowL >= Integer.parseInt(rows) || colL >= Integer.parseInt(columns)) {
+				int levelL = Integer.parseInt(scan.next());
+				if(rowL >= rows || colL >= columns || levelL >= levels) {
 					System.out.println("Coords don't match");
-					String[][]empty =new String[0][0];
-					return empty;
+					return null;
 				}
-				cordBased[rowL][colL] = character;
-				scan.next();
+				maze[levelL][rowL][colL] = character;
+				
 			}
 			
-			for(int i = 0; i < cordBased.length; i++) {
-				for(int j = 0; j < cordBased[0].length; j++) {
-					if(cordBased[i][j] == null) {
-						cordBased[i][j] = ".";
-					}
-				}
-
-			}
 			
-			return cordBased;
+			
+			return maze;
 			
 			
 		} catch (FileNotFoundException e) {
