@@ -31,6 +31,7 @@ public class MazeSolver {
 		queue1.add(new int[] {startRow, startCol}); // will this work?
 		visited[startRow][startCol] = true;
 		
+		
 		while(!queue1.isEmpty()) {
 			int [] current = queue1.remove();
 			int row = current[0];
@@ -43,22 +44,25 @@ public class MazeSolver {
 		            while(!maze[current2[0]][current2[1]].equals("W")) {
 		            	if(!maze[current2[0]][current2[1]].equals("$")) {
 		            		maze[current2[0]][current2[1]] = "+";
-		            		current2 = parent[current2[0]][current2[1]];
+		            		
 		            	}
-		            	return;
+		            	current2 = parent[current2[0]][current2[1]];
 		                
 		            }
-		            if(maze[row][col].equals("|")) {
-		            	int[] current3 = {row, col};
-		            	while(!maze[current3[0]][current3[1]].equals("W")) {
-		            		if(!maze[current3[0]][current3[1]].equals("|")) {
-		            			maze[current3[0]][current3[1]] = "+";
-			            		current3 = parent[current3[0]][current2[1]];
-		            		}
-		            		break;
-		            	}
-		            }
+		            return; 
 		        }
+			
+			if(maze[row][col].equals("|")) {
+            	int[] current3 = {row, col};
+            	while(!maze[current3[0]][current3[1]].equals("W")) {
+            		if(!maze[current3[0]][current3[1]].equals("|")) {
+            			maze[current3[0]][current3[1]] = "+";
+	            		
+            		}
+            		current3 = parent[current3[0]][current3[1]];
+            	}
+            	break;
+            }
 		    
 			int newRow = row - 1;
 			int newCol = col;
@@ -140,10 +144,11 @@ public class MazeSolver {
 		            	while(!maze[current3[0]][current3[1]].equals("W")) {
 		            		if(!maze[current3[0]][current3[1]].equals("|")) {
 		            			maze[current3[0]][current3[1]] = "+";
-			            		current3 = parent[current3[0]][current2[1]];
+			            		
 		            		}
-		            break;
+		            		current3 = parent[current3[0]][current3[1]];
 		        }
+		          break;  
 		      }
 			}
 		    
