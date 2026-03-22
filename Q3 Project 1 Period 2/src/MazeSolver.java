@@ -36,6 +36,8 @@ public class MazeSolver {
 			int row = current[0];
 			int col = current[1];
 			
+			
+			
 			if (maze[row][col].equals("$")) {
 				  int[] current2 = {row, col};
 		            while(!maze[current2[0]][current2[1]].equals("W")) {
@@ -89,7 +91,7 @@ public class MazeSolver {
 			}
 
 		}
-		System.out.println("Wolverine Store Closed");
+		//System.out.println("Wolverine Store Closed");
 		}
 	}
 		
@@ -122,7 +124,7 @@ public class MazeSolver {
 			int [] current = stack.pop();
 			int row = current[0];
 			int col = current[1];
-			
+	
 			if (maze[row][col].equals("$")) {
 				  int[] current2 = {row, col};
 		            while(!maze[current2[0]][current2[1]].equals("W")) {
@@ -176,7 +178,7 @@ public class MazeSolver {
 			}
 
 		}
-		System.out.println("Wolverine Store Closed");
+		//System.out.println("Wolverine Store Closed");
 		}	
 	}
 }

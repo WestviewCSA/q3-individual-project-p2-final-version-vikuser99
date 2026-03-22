@@ -1,6 +1,6 @@
 
 public class Optimal {
-	public void optimalPath(String[][] maze) {
+	public void optimalPath(String[][][] maze) {
 		MazeSolver solver = new MazeSolver();
 		solver.queueApproach(maze);
 	}

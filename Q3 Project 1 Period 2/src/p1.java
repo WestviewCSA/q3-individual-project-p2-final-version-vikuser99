@@ -44,7 +44,7 @@ public class p1 {
 		}
 		
 		FileReader fr = new FileReader();
-		String[][] maze;
+		String[][][] maze;
 		if(useInCoordinate) {
 			maze = fr.getCords(fileName);
 		}
@@ -68,14 +68,14 @@ public class p1 {
 		if(useTime) {
 			System.out.println("Total Runtime: " + (endTime - startTime) / 1000.0 + " seconds");
 		}
-		
-		for(int i =0; i<maze.length; i++) {
-			for(int j =0; j<maze[0].length; j++) {
-				System.out.print(maze[i][j]);
+	for(int level =0; level < maze.length; level++) {	
+		for(int i =0; i<maze[level].length; i++) {
+			for(int j =0; j<maze[level][i].length; j++) {
+				System.out.print(maze[level][i][j]);
 			}
 			System.out.println();
 		}
 
 	}
-
+	}
 }
