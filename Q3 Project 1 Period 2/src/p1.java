@@ -4,6 +4,8 @@ public class p1 {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		String fileName = args[args.length-1];
+		
 		boolean useStack = false;
 		boolean useQueue = false;
 		boolean useOpt = false;
