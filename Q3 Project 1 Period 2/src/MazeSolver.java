@@ -9,7 +9,7 @@ public class MazeSolver {
 	}
 
 
-	public void queueApproach(String [][][] mazes) {
+	public boolean queueApproach(String [][][] mazes) {
 		boolean foundPath =false;
 		for(int level =0; level<mazes.length; level++) {
 			String[][] maze = mazes[level];
@@ -51,7 +51,7 @@ public class MazeSolver {
 		            	current2 = parent[current2[0]][current2[1]];
 		                
 		            }
-		            return; 
+		            return true; 
 		        }
 			
 			if(maze[row][col].equals("|")) {
@@ -102,14 +102,15 @@ public class MazeSolver {
 		}
 		if(!foundPath) {
 			System.out.println("The Wolverine Store is closed.");
-			return;
+			return false;
 		}
+		return true;
 	}
 		
 		
 		
 	
-	public void stackApproach(String [][][] mazes) {
+	public boolean stackApproach(String [][][] mazes) {
 		boolean foundPath =false;
 		for(int level =0; level<mazes.length; level++) {
 			String[][] maze = mazes[level];
@@ -147,7 +148,7 @@ public class MazeSolver {
 		            	current2 = parent[current2[0]][current2[1]];
 		                
 		            }
-		            return; 
+		            return true; 
 		        }
 			
 			if(maze[row][col].equals("|")) {
@@ -197,7 +198,8 @@ public class MazeSolver {
 		}	
 		if(!foundPath) {
 			System.out.println("The Wolverine Store is closed.");
-			return;
+			return false;
 	}
+		return true;
 	}
 }

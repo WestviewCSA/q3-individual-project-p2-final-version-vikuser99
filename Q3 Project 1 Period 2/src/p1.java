@@ -54,20 +54,22 @@ public class p1 {
 		MazeSolver solver = new MazeSolver();
 		long startTime = System.currentTimeMillis();
 		
+		boolean solved = false;
 		if(useStack) {
-			solver.stackApproach(maze);
+			solved = solver.stackApproach(maze);
 		}
 		else if(useQueue) {
-			solver.queueApproach(maze);
+			solved = solver.queueApproach(maze);
 		}
 		else if(useOpt) {
-			solver.queueApproach(maze);
+			solved = solver.queueApproach(maze);
 		}
 		
 		long endTime = System.currentTimeMillis();
 		if(useTime) {
 			System.out.println("Total Runtime: " + (endTime - startTime) / 1000.0 + " seconds");
 		}
+		if(solved) {
 		if(useOutCoordinate) {
 			for(int level =0; level<maze.length; level++) {
 				for(int i =0; i<maze[level].length; i++) {
@@ -90,6 +92,6 @@ public class p1 {
 			}
 		}
 		
-	
+		}
 	}
 }
