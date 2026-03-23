@@ -95,7 +95,7 @@ public class MazeSolver {
 			}
 
 		}
-		//System.out.println("Wolverine Store Closed");
+		System.out.println("The Wolverine Store Closed");
 		}
 	}
 		
@@ -184,7 +184,7 @@ public class MazeSolver {
 			}
 
 		}
-		//System.out.println("Wolverine Store Closed");
+		System.out.println("The Wolverine Store Closed");
 		}	
 	}
 }

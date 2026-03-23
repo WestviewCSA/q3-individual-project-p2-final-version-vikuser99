@@ -68,14 +68,28 @@ public class p1 {
 		if(useTime) {
 			System.out.println("Total Runtime: " + (endTime - startTime) / 1000.0 + " seconds");
 		}
-	for(int level =0; level < maze.length; level++) {	
-		for(int i =0; i<maze[level].length; i++) {
-			for(int j =0; j<maze[level][i].length; j++) {
-				System.out.print(maze[level][i][j]);
+		if(useOutCoordinate) {
+			for(int level =0; level<maze.length; level++) {
+				for(int i =0; i<maze[level].length; i++) {
+					for(int j =0; j<maze[level][i].length; j++) {
+						if(maze[level][i][j].equals("+")) {
+							System.out.println("+ " + i + " "+ j + " " + level);
+						}
+					}
+				}
 			}
-			System.out.println();
-		}
+		} else {
+			for(int level =0; level < maze.length; level++) {	
+				for(int i =0; i<maze[level].length; i++) {
+					for(int j =0; j<maze[level][i].length; j++) {
+						System.out.print(maze[level][i][j]);
+					}
+					System.out.println();
+				}
 
-	}
+			}
+		}
+		
+	
 	}
 }
